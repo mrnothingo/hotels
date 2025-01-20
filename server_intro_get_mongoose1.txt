@@ -1,0 +1,46 @@
+// const jsonString = '{"name": "john", "age": 30, "city": "New York"}';
+// const jsonObject = JSON.parse(jsonString);
+// console.log(jsonObject.name);
+
+// const objectToConvert = {
+//     name: "alice",
+//     age:30
+// };
+// const json = JSON.stringify(objectToConvert); //convert object to JSON string
+// console.log(json);
+
+// console.log(typeof json);
+
+/******************************** */
+//express using for making server
+
+const express = require('express')
+const app = express();
+
+// app.get('/', function (req, res) { //req: request
+//   res.send(' whats up?');
+// });
+app.get('/veg',(req, res)=>{
+    res.send('sure sir, i would love to serve veg ')
+} );
+ 
+app.get('/idli',(req, res)=>{ 
+  var customized_idli = {
+    name: 'rava idli',
+    sizes:'10 cm diameter',
+    is_sambhar: true,
+    is_sambhar:false
+
+  }
+  
+    res.send(customized_idli)
+} );
+
+app.post('/items', (req, res)=>{
+  //console.log('data is saved');
+  res.send('data is saved'); //response
+})
+ 
+app.listen(3000, ()=>{
+  console.log('listening on port 3000'); // printing that server is live
+}) // code of server room
