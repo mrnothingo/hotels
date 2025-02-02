@@ -1,9 +1,17 @@
+
 const mongoose = require('mongoose');
+require('dotenv').config();
+
 
 //define the MongoDb coonection URL
 // never leave a space in between url
-const mongoURL = 'mongodb://localhost:27017/hotels'// replace 'mydatabase' with your database name
+//const mongoURL = 'mongodb://localhost:27017/hotels'// replace 'mydatabase' with your database name
 
+// online database mongoDB Atlas
+const mongoURL = process.env.MONGODB_URL_LOCAL;
+console.log(mongoURL);
+
+//const mongoURL = process.env.MONGODB_URL_LOCAL;
 //setup MongoDb connection
 mongoose.connect(mongoURL, {
     useNewUrlParser: true,

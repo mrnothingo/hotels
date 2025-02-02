@@ -1,17 +1,20 @@
 const express = require('express')
 const app = express();
 const db = require('./db');
+ require('dotenv').config();
+
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); //req.body
+const PORT = process.env.PORT ;
 
 
 
 
 app.get('/', function (req, res) { //req: request
-      res.send(' whats up?' )
+      res.send(' whats up?' );
 })
-// POST route to add a person
+
 
 
 
@@ -26,7 +29,9 @@ app.use('/person', personRoutes);
 app.use('/menu', menuRoutes);
 
 
-app.listen(3000, ()=>{
+
+
+app.listen(PORT, ()=>{
     console.log('listening on port 3000');
 });
 
